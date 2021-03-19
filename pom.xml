@@ -45,6 +45,7 @@
 
   <dependencies>
       <!-- cmo messaging library -->
+
     <dependency>
       <groupId>${cmo_metadb_messaging_java.group}</groupId>
       <artifactId>cmo-messaging-java</artifactId>
@@ -196,7 +197,7 @@
         <configuration>
           <mainClass>org.mskcc.cmo.metadb.ConsistencyCheckerApp</mainClass>
         </configuration>
-      </plugin>
+      </plugin>      
     </plugins>
   </build>
 </project>

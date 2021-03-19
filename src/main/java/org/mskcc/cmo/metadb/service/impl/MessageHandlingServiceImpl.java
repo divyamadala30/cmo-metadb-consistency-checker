@@ -393,5 +393,4 @@ public class MessageHandlingServiceImpl implements MessageHandlingService {
             consistencyCheckerHandlerShutdownLatch.countDown();
         }
     }
-
 }
