@@ -122,6 +122,18 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.11</version>
     </dependency>
+    <dependency>
+      <groupId>org.skyscreamer</groupId>
+      <artifactId>jsonassert</artifactId>
+      <version>1.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>3.3.3</version>
+      <scope>test</scope>
+      <type>jar</type>
+    </dependency>
   </dependencies>
 
   <build>
@@ -197,7 +209,7 @@
         <configuration>
           <mainClass>org.mskcc.cmo.metadb.ConsistencyCheckerApp</mainClass>
         </configuration>
-      </plugin>      
+      </plugin>
     </plugins>
   </build>
 </project>

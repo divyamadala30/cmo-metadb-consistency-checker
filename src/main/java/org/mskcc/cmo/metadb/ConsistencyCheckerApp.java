@@ -58,5 +58,4 @@ public class ConsistencyCheckerApp implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(ConsistencyCheckerApp.class, args);
     }
-
 }
