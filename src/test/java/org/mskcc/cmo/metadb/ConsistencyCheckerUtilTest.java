@@ -66,11 +66,13 @@ public class ConsistencyCheckerUtilTest {
             MockJsonTestData publishedRequest = mockedRequestJsonDataMap.get(publishedRequestId);
 
             try {
+                System.out.println("\n\n\n");
                 Boolean consistencyCheckStatus = consistencyCheckerUtil.isConsistent(incomingRequest.getJsonString(), publishedRequest.getJsonString());
                 if(!consistencyCheckStatus) {
                     errorsMap.put(incomingRequestId, "Request did not pass consistency check but no exception was caught.");
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 errorsMap.put(incomingRequestId, e.getMessage());
             }
         }
