@@ -1,13 +1,6 @@
 package org.mskcc.cmo.metadb.util;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import org.mskcc.cmo.common.FileUtil;
-import org.skyscreamer.jsonassert.JSONAssert;
-import org.skyscreamer.jsonassert.JSONCompareMode;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -72,6 +65,7 @@ public class ConsistencyCheckerUtil {
                     targetFilteredJsonMap.get("requestNode"), JSONCompareMode.STRICT);
             JSONAssert.assertEquals(referenceFilteredJsonMap.get("samplesNode"),
                     targetFilteredJsonMap.get("samplesNode"), JSONCompareMode.STRICT);
+
             assertResponse = true;
         } catch (Exception e) {
             LOG.error("Error encountered during consistency check", e);
