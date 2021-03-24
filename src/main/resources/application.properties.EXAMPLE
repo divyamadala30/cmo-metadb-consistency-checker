@@ -9,10 +9,14 @@ nats.url=
 # messaging configuration
 igo.new_request_topic=
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> First pass at implementing message handling service
 metadb.new_request_consistency_check_topic=
 metadb.cmo_new_request_topic=
 
 # threading
+<<<<<<< HEAD
 num.new_request_handler_threads=
 num.consistency_checker_handler_threads=
 
@@ -25,12 +29,19 @@ metadb.publishing_failures_filepath=
 # detailed consistency checking logger filepath
 consistency_checker.request_handling_failures_filepath=
 =======
+=======
+>>>>>>> First pass at implementing message handling service
 num.new_request_handler_threads=
-consistency_check.new_request_topic=
+num.consistency_checker_handler_threads=
 
-# messaging failures filepath
-cc_metadb.publishing_failures_filepath=
+# publishing failures filepath
+metadb.publishing_failures_filepath=
 
+<<<<<<< HEAD
 # request handling failure filepath
 cc_metadb.request_handling_failures_filepath=
 >>>>>>> Init commit of consistency checker logic and testing
+=======
+# detailed consistency checking logger filepath
+consistency_checker.request_handling_failures_filepath=
+>>>>>>> First pass at implementing message handling service

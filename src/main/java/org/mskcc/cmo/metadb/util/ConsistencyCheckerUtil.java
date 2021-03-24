@@ -78,6 +78,16 @@ public class ConsistencyCheckerUtil {
     }
 
     /**
+     * TODO?
+     * @param referenceJson
+     * @param targetJson
+     * @return
+     */
+    public Object getJsonDiffs(String referenceJson, String targetJson) {
+        throw new UnsupportedOperationException("Method not supported yet");
+    }
+
+    /**
      * Returns an ordered ArrayNode of the 'samples' JSON attribute from the request json.
      * @param samples
      * @param ignoredFields
