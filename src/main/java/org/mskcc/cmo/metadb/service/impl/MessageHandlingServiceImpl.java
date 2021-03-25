@@ -25,6 +25,7 @@ import org.mskcc.cmo.messaging.Gateway;
 import org.mskcc.cmo.messaging.MessageConsumer;
 import org.mskcc.cmo.metadb.model.ConsistencyCheckerRequest;
 import org.mskcc.cmo.metadb.model.ConsistencyCheckerRequest.StatusType;
+
 import org.mskcc.cmo.metadb.service.MessageHandlingService;
 import org.mskcc.cmo.metadb.util.ConsistencyCheckerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -312,6 +313,10 @@ public class MessageHandlingServiceImpl implements MessageHandlingService {
                         LOG.debug("Removing request from consistency check messages received: "
                                 + request.getRequestId());
                         consistencyCheckerMessagesReceived.remove(request.getRequestId());
+
+                        // remove request from consistency check messages received
+                        System.out.println("Removing request from consistency check messages received: " + request.getRequestId());
+                        metadbRequestConsistencyCheckerMessagesReceived.remove(request.getRequestId());
 
                         // save request details to logger file
                         File loggerFile = fileUtil.getOrCreateFileWithHeader(
