@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -314,7 +313,7 @@ public class MessageHandlingServiceImpl implements MessageHandlingService {
                         consistencyCheckerMessagesReceived.remove(request.getRequestId());
 
                         // remove request from consistency check messages received
-                        System.out.println("Removing request from consistency check messages received: " + request.getRequestId());
+                        LOG.debug("Removing request from consistency check messages received: " + request.getRequestId());
                         metadbRequestConsistencyCheckerMessagesReceived.remove(request.getRequestId());
 
                         // save request details to logger file

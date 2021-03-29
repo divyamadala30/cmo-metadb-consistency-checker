@@ -7,13 +7,19 @@ log4j.category.org.mskcc=INFO
 ## IMPORTANT - THRESHOLD SHOULD NOT BE DEBUG FOR PRODUCTION, CREDENTIALS CAN BE DISPLAYED!
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Implement lof4j logger
 log4j.appender.a = org.apache.log4j.rolling.RollingFileAppender
 log4j.appender.a.rollingPolicy = org.apache.log4j.rolling.TimeBasedRollingPolicy
 
 log4j.appender.a.rollingPolicy.FileNamePattern = /path/to/logfile.log.%d.gz
+<<<<<<< HEAD
 =======
 log4j.appender.a = org.apache.log4j.FileAppender
 >>>>>>> Init commit of consistency checker logic and testing
+=======
+>>>>>>> Implement lof4j logger
 
 log4j.appender.a.File = /path/to/logfile.log
 

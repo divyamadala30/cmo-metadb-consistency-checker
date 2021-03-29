@@ -45,7 +45,6 @@
 
   <dependencies>
       <!-- cmo messaging library -->
-
     <dependency>
       <groupId>${cmo_metadb_messaging_java.group}</groupId>
       <artifactId>cmo-messaging-java</artifactId>
@@ -127,13 +126,7 @@
       <artifactId>jsonassert</artifactId>
       <version>1.5.0</version>
     </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>3.3.3</version>
-      <scope>test</scope>
-      <type>jar</type>
-    </dependency>
+    <!-- string utils -->
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
