@@ -41,6 +41,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MessageHandlingServiceImpl implements MessageHandlingService {
     private static final Log LOG = LogFactory.getLog(MessageHandlingServiceImpl.class);
+    private final String TIMESTAMP_FORMAT = "yyyy.MM.dd.HH.mm.ss";
 
     @Autowired
     private FileUtil fileUtil;
@@ -160,7 +161,7 @@ public class MessageHandlingServiceImpl implements MessageHandlingService {
                     String incomingRequestJson = mapper.readValue(
                             new String(msg.getData(), StandardCharsets.UTF_8),
                             String.class);
-                    String incomingTimestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+                    String incomingTimestamp = new SimpleDateFormat(TIMESTAMP_FORMAT).format(new Date());
                     String requestId = getRequestIdFromRequestJson(incomingRequestJson);
 
                     ConsistencyCheckerRequest request =
@@ -202,7 +203,7 @@ public class MessageHandlingServiceImpl implements MessageHandlingService {
                     String incomingRequestJson = mapper.readValue(
                             new String(msg.getData(), StandardCharsets.UTF_8),
                             String.class);
-                    String incomingTimestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+                    String incomingTimestamp = new SimpleDateFormat(TIMESTAMP_FORMAT).format(new Date());
                     String requestId = getRequestIdFromRequestJson(incomingRequestJson);
 
                     ConsistencyCheckerRequest request =
@@ -247,9 +248,9 @@ public class MessageHandlingServiceImpl implements MessageHandlingService {
 
                 // compare incoming vs outgoing timestamps to determine if time between message
                 // received on both topics is greater than specified messaging time threshold
-                Date incomingTimestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
+                Date incomingTimestamp = new SimpleDateFormat(TIMESTAMP_FORMAT)
                         .parse(igoNewRequest.getIncomingTimestamp());
-                Date outgoingTimestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
+                Date outgoingTimestamp = new SimpleDateFormat(TIMESTAMP_FORMAT)
                         .parse(consistencyCheckRequest.getIncomingTimestamp());
                 if ((incomingTimestamp.getTime() - outgoingTimestamp.getTime()) > messagingTimeThreshold) {
                     igoNewRequest.setStatusType(StatusType.SUCCESSFUL_PUBLISHING_TIME_EXCEEDED);
@@ -323,10 +324,10 @@ public class MessageHandlingServiceImpl implements MessageHandlingService {
 
                         // update outgoing timestamp and compare to incoming to update status type if needed
                         request.setOutgoingTimestamp(
-                                new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()));
-                        Date incomingDate = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
+                                new SimpleDateFormat(TIMESTAMP_FORMAT).format(new Date()));
+                        Date incomingDate = new SimpleDateFormat(TIMESTAMP_FORMAT)
                                 .parse(request.getIncomingTimestamp());
-                        Date outgoingDate = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
+                        Date outgoingDate = new SimpleDateFormat(TIMESTAMP_FORMAT)
                                 .parse(request.getOutgoingTimestamp());
                         if ((outgoingDate.getTime() - incomingDate.getTime()) > messagingTimeThreshold) {
                             request.setStatusType(StatusType.SUCCESSFUL_PUBLISHING_TIME_EXCEEDED);
